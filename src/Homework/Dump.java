@@ -14,7 +14,6 @@ public class Dump {
             int MAX_DETAILS_AT_NIGHT = RandomUtil.generateRandomValue(5);
             for (int i = 0; i < MAX_DETAILS_AT_NIGHT; i++) {
                 synchronized (dump) {
-                    System.out.println(Thread.currentThread().getName() + " кладёт деталь на свалку");
                     int indexOfDetail = RandomUtil.generateRandomValue(details.length);
                     dump.add(details[indexOfDetail].getDescription());
                 }
@@ -29,7 +28,6 @@ public class Dump {
             for (int i = 0; i < MAX_COUNT_OF_DETAILS; i++) {
                 synchronized (dump) {
                     if (!dump.isEmpty()) {
-                        System.out.println(Thread.currentThread().getName() + " берёт деталь");
                         String detail = dump.get(0);
                         dump.remove(0);
                         collectedDetails.add(detail);
@@ -42,7 +40,6 @@ public class Dump {
 
     private void sleep100mc() {
         try {
-            System.out.println(Thread.currentThread().getName() + " спит");
             Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
